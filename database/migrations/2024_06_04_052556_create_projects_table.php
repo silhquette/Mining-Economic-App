@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('site_manager');
             $table->integer('invest_capital');
             $table->integer('invest_noncapital');
+            $table->integer('tax');
+            $table->integer('depreciation');
             $table->foreignId('user_id')
             ->constrained()
             ->onDelete('cascade')
