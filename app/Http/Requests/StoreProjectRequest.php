@@ -22,15 +22,20 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'year' => 'required|numeric|between:2000,' . date("Y"),
-            'production' => 'required|min:1',
-            'income' => 'required|min:1',
-            'opex' => 'required|min:1',
-            'depreciation' => 'required|numeric|between:0,100',
-            'net_income' => 'required|min:1',
-            'tax' => 'required|numeric|between:0,100',
-            'net_cashflow' => 'required|min:1',
-            'project_id' => 'required|exists:projects,id',
+            'name' => 'required|min:5',
+            'site_manager' => 'required|min:5',
+            'invest_capital' => 'required',
+            'invest_noncapital' => 'required',
+            'user_id' => 'required|exists:users,id'
+            // 'year' => 'required|numeric|between:2000,' . date("Y"),
+            // 'production' => 'required|min:1',
+            // 'income' => 'required|min:1',
+            // 'opex' => 'required|min:1',
+            // 'depreciation' => 'required|numeric|between:0,100',
+            // 'net_income' => 'required|min:1',
+            // 'tax' => 'required|numeric|between:0,100',
+            // 'net_cashflow' => 'required|min:1',
+            // 'project_id' => 'required|exists:projects,id',
         ];
     }
 }
