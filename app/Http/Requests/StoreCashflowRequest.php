@@ -11,7 +11,7 @@ class StoreCashflowRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class StoreCashflowRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'year' => 'required|numeric|between:1,' . date("Y"),
+            'production' => 'required|min:1',
+            'income' => 'required|min:1',
+            'opex' => 'required|min:1',
+            'depreciation' => 'required|numeric|between:0,100',
+            'net_income' => 'required|min:1',
+            'tax' => 'required|numeric|between:0,100',
+            'taxable_income' => 'required|min:1',
+            'net_cashflow' => 'required|min:1',
+            'project_id' => 'required|exists:projects,id',  
         ];
     }
 }

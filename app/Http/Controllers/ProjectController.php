@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Repositories\Project\ProjectRepository;
@@ -15,7 +16,7 @@ class ProjectController extends Controller
      * @var mixed
      */
     protected $projectRepository;
-    
+
     /**
      * __construct method
      *
@@ -24,7 +25,7 @@ class ProjectController extends Controller
      */
     public function __construct(ProjectRepository $projectRepository)
     {
-      $this->projectRepository = $projectRepository;
+        $this->projectRepository = $projectRepository;
     }
 
     /**
@@ -51,11 +52,13 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $validated = $request->validated();
-
-        Project::create($validated);
-
-        return redirect()->route('project.index')->with(['success' => 'Project berhasil ditambahkan']);
+        try {
+            Project::create($request->all());
+            return redirect()->route('project.index')->with(['success' => 'Project berhasil ditambahkan']);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return redirect()->back()->withInput()->withErrors(['error' => 'Gagal menambahkan project. Silakan coba lagi.']);
+        }
     }
 
     /**
