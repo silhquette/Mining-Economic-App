@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('/project', ProjectController::class)->middleware('auth');
 
-Route::get('/project/{project}/cashflow/create', [CashflowController::class, 'create'])->name('cashflow.create');
+Route::prefix('/project/{project}')->group(function() {
+    Route::resource('/cashflow', CashflowController::class)->middleware('auth');
+});
 
 require __DIR__.'/auth.php';
