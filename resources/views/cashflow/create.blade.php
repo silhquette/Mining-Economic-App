@@ -29,11 +29,6 @@
                                 <td>{{ $project->name }}</td>
                             </tr>
                             <tr>
-                                <td class="w-1/5 py-1 text-gray-500">Site Manager</td>
-                                <td>{{ $project->site_manager }}</td>
-                            </tr>
-                            </tr>
-                            <tr>
                                 <td class="w-1/5 py-1 text-gray-500">Depreciation</td>
                                 <td id="project-depreciation">{{ $project->depreciation }}%</td>
                             </tr>

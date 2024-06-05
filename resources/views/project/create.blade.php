@@ -37,13 +37,13 @@
                                 <x-input-error :messages="$errors->get('invest_noncapital')" class="mt-2" />
                             </div>
                             <div class="basis-1/4">
-                                <x-input-label for="depreciation" :value="__('Depreciation')"/>
+                                <x-input-label for="depreciation" :value="__('Depreciation (%)')"/>
                                 <x-text-input id="depreciation" class="block mt-1 w-full" type="number" name="depreciation"
                                     :value="old('depreciation')" min=1 max=100 />
                                 <x-input-error :messages="$errors->get('depreciation')" class="mt-2" />
                             </div>
                             <div class="basis-1/4">
-                                <x-input-label for="tax" :value="__('tax')"/>
+                                <x-input-label for="tax" :value="__('Tax (%)')"/>
                                 <x-text-input id="tax" class="block mt-1 w-full" type="number" name="tax"
                                     :value="old('tax')" min=1 max=100 />
                                 <x-input-error :messages="$errors->get('tax')" class="mt-2" />

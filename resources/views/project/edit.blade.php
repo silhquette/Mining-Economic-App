@@ -26,19 +26,30 @@
                                 :value="old('site_manager', $project->site_manager)" />
                             <x-input-error :messages="$errors->get('site_manager')" class="mt-2" />
                         </div>
-
                         <div class="mb-8 flex gap-4">
-                            <div class="basis-1/2">
+                            <div class="basis-1/4">
                                 <x-input-label for="invest_capital" :value="__('Invest Capital')"/>
                                 <x-text-input id="invest_capital" class="block mt-1 w-full" type="number" name="invest_capital"
                                     :value="old('invest_capital', $project->invest_capital)" min=1 />
                                 <x-input-error :messages="$errors->get('invest_capital')" class="mt-2" />
                             </div>
-                            <div class="basis-1/2">
+                            <div class="basis-1/4">
                                 <x-input-label for="invest_noncapital" :value="__('Invest Non Capital')"/>
                                 <x-text-input id="invest_noncapital" class="block mt-1 w-full" type="number" name="invest_noncapital"
                                     :value="old('invest_noncapital', $project->invest_noncapital)" min=1 />
                                 <x-input-error :messages="$errors->get('invest_noncapital')" class="mt-2" />
+                            </div>
+                            <div class="basis-1/4">
+                                <x-input-label for="depreciation" :value="__('Depreciation (%)')"/>
+                                <x-text-input id="depreciation" class="block mt-1 w-full" type="number" name="depreciation"
+                                    :value="old('depreciation', $project->depreciation)" min=1 max=100 />
+                                <x-input-error :messages="$errors->get('depreciation')" class="mt-2" />
+                            </div>
+                            <div class="basis-1/4">
+                                <x-input-label for="tax" :value="__('Tax (%)')"/>
+                                <x-text-input id="tax" class="block mt-1 w-full" type="number" name="tax"
+                                    :value="old('tax', $project->tax)" min=1 max=100 />
+                                <x-input-error :messages="$errors->get('tax')" class="mt-2" />
                             </div>
                         </div>
 
