@@ -11,7 +11,15 @@ class Project extends Model
     use HasFactory;
 
     protected $with = ['cashflows'];
-    protected $fillable = ['name', 'site_manager', 'invest_capital', 'invest_noncapital', 'user_id'];
+    protected $fillable = [
+        'name',
+        'site_manager',
+        'tax',
+        'invest_capital',
+        'invest_noncapital',
+        'depreciation',
+        'user_id'
+    ];
 
     public function cashflows() : HasMany
     {

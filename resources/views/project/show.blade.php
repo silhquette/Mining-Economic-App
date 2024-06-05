@@ -24,9 +24,8 @@
                                 <th class="border dark:border-gray-100 border-gray-900 p-2">Investasi Non-Kapital</th>
                                 <th class="border dark:border-gray-100 border-gray-900 p-2">Biaya Operasional</th>
                                 <th class="border dark:border-gray-100 border-gray-900 p-2">Depresiasi</th>
-                                <th class="border dark:border-gray-100 border-gray-900 p-2">Pendapatan Bersih</th>
-                                <th class="border dark:border-gray-100 border-gray-900 p-2">Pajak</th>
                                 <th class="border dark:border-gray-100 border-gray-900 p-2">Pendapatan Kena Pajak</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Pajak</th>
                                 <th class="border dark:border-gray-100 border-gray-900 p-2">Arus Kas Bersih</th>
                             </tr>
                         </thead>
@@ -41,7 +40,6 @@
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
-                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">{{( $project->invest_capital+$project->invest_noncapital)*-1 }}</td>
                             </tr>
                             @foreach ($project->cashflows as $cashflow)
@@ -52,10 +50,9 @@
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->opex }}</td>
-                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->depreciation }}</td>
-                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->net_income }}</td>
-                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->tax }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ ($cashflow->income - $cashflow->opex) * $project->depreciation / 100 }}</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->taxable_income }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->taxable_income * $project->tax / 100 }}</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->net_cashflow }}</td>
                                 </tr>
                             @endforeach

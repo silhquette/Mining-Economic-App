@@ -5,17 +5,22 @@ $("input").keyup(function (e) {
     );
 
     // set net income value
-    $("#net_income").val(
-        ($("#income").val() - $("#opex").val()) * (1 - $("#depreciation").val() / 100)
+    $("#depreciation").val(
+        ($("#income").val() - $("#opex").val()) * parseInt($("#project-depreciation").html()) / 100
     );
 
     // set taxable income
     $("#taxable_income").val(
-        $("#net_income").val() * $("#tax").val() / 100
+        $("#income").val() - $("#opex").val() - $("#depreciation").val()
+    );
+
+    // set taxable income
+    $("#tax").val(
+        $("#taxable_income").val() * parseInt($("#project-tax").html()) / 100
     );
 
     // set taxable income
     $("#net_cashflow").val(
-        $("#net_income").val() - $("#taxable_income").val()
+        $("#taxable_income").val() - $("#tax").val()
     );
 })

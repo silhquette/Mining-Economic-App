@@ -14,9 +14,6 @@ class Cashflow extends Model
         'production',
         'income',
         'opex',
-        'depreciation',
-        'net_income',
-        'tax',
         'taxable_income',
         'net_cashflow',
         'project_id'

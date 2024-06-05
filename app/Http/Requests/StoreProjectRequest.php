@@ -26,7 +26,9 @@ class StoreProjectRequest extends FormRequest
             'site_manager' => 'required|min:5',
             'invest_capital' => 'required',
             'invest_noncapital' => 'required',
-            'user_id' => 'required|exists:users,id'
+            'user_id' => 'required|exists:users,id',
+            'depreciation' => 'required|numeric|between:0,100',
+            'tax' => 'required|numeric|between:0,100',
         ];
     }
 }

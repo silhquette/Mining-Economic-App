@@ -17,9 +17,6 @@ return new class extends Migration
             $table->integer('production');
             $table->integer('income');
             $table->integer('opex');
-            $table->integer('depreciation');
-            $table->integer('net_income');
-            $table->integer('tax');
             $table->integer('taxable_income');
             $table->integer('net_cashflow');
             $table->foreignId('project_id')
