@@ -14,7 +14,7 @@ class CashflowController extends Controller
      */
     public function create(Project $project)
     {
-        return view('cashflow.edit', [
+        return view('cashflow.create', [
             'project' => $project
         ]);
     }
@@ -30,7 +30,7 @@ class CashflowController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cashflow $cashflow)
+    public function edit(Project $project, Cashflow $cashflow)
     {
         return view('cashflow.edit', [
             'cashflow' => $cashflow
@@ -40,7 +40,7 @@ class CashflowController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCashflowRequest $request, Cashflow $cashflow, Project $project)
+    public function update(UpdateCashflowRequest $request, Project $project, Cashflow $cashflow)
     {
         $validated = $request->validate();
 
@@ -52,7 +52,7 @@ class CashflowController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cashflow $cashflow)
+    public function destroy(Project $project, Cashflow $cashflow)
     {
         $cashflow->delete();
 
