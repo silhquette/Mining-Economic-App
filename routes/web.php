@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('/project', ProjectController::class);
+Route::resource('/project', ProjectController::class)->middleware('auth');
 
 Route::get('/project/{project}/cashflow/create', [CashflowController::class, 'create'])->name('cashflow.create');
 

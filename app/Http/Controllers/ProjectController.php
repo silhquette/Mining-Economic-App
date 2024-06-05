@@ -43,7 +43,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return __METHOD__;
+        return view('project.create');
     }
 
     /**
