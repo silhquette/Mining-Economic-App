@@ -32,7 +32,7 @@
             @endforeach
             <a class="flex justify-center items-center bg-white text-gray-900 dark:text-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6"
                 href="{{ route('project.create') }}">
-                Add New Project
+                <i class="fa-solid fa-circle-plus mr-2"></i>Add New Project
             </a>
         </div>
     </div>
