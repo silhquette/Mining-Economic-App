@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,9 @@ class ProjectFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(3),
+            'invest_capital' => $this->faker->numberBetween(200, 900) * 1800,
+            'invest_noncapital' => $this->faker->numberBetween(200, 900) * 1800,
+            'user_id' => User::all()->random()->id,
             'site_manager' => $this->faker->name()
         ];
     }

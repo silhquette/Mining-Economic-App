@@ -16,8 +16,6 @@ return new class extends Migration
             $table->integer('year');
             $table->integer('production');
             $table->integer('income');
-            $table->integer('invest_capital');
-            $table->integer('invest_noncapital');
             $table->integer('opex');
             $table->integer('depreciation');
             $table->integer('net_income');

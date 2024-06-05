@@ -21,8 +21,6 @@ class CashflowFactory extends Factory
             'year' => $this->faker->unique()->year(),
             'production' => $this->faker->numberBetween(200, 900),
             'income' => $this->faker->numberBetween(200, 900) * 1800,
-            'invest_capital' => $this->faker->numberBetween(200, 900) * 1800,
-            'invest_noncapital' => $this->faker->numberBetween(200, 900) * 1800,
             'opex' => $this->faker->numberBetween(200, 900) * 1800,
             'depreciation' => $this->faker->numberBetween(1, 100),
             'net_income' => $this->faker->numberBetween(200, 900) * 1800,

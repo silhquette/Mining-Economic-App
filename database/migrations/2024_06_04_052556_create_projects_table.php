@@ -15,6 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('site_manager');
+            $table->integer('invest_capital');
+            $table->integer('invest_noncapital');
+            $table->foreignId('user_id')
+            ->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
