@@ -8,7 +8,7 @@
     <div class="p-6 sm:rounded-lg max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             @foreach ($projects as $project)
-                <a class="flex flex-col justify-between bg-white text-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6" href="{{ route('project.show', $project->id) }}">
+                <a class="flex flex-col justify-between bg-white text-gray-900 dark:text-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6" href="{{ route('project.show', $project->id) }}">
                     <div class="font-semibold text-3xl mb-2">{{ $project->name }}</div>
                     <div>
                         <div>{{ $project->site_manager }}</div>
@@ -16,7 +16,7 @@
                     </div>
                 </a>
             @endforeach
-            <a class="flex justify-center items-center bg-white text-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6" href="{{ route('project.create') }}">
+            <a class="flex justify-center items-center bg-white text-gray-900 dark:text-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6" href="{{ route('project.create') }}">
                 Add New Project
             </a>
         </div>

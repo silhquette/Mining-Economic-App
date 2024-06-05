@@ -13,37 +13,50 @@
                     <p>Manajer Situs: {{ $project->site_manager }}</p>
                     <p>Dibuat pada: {{ $project->created_at }}</p>
 
-                    <h4 class="font-bold mt-4">Cash Flow</h4>
+                    <h4 class="font-bold mt-4 mb-4">Cash Flow</h4>
                     <table class="table-auto w-full">
                         <thead>
                             <tr>
-                                <th>Tahun</th>
-                                <th>Produksi</th>
-                                <th>Pendapatan</th>
-                                <th>Investasi Kapital</th>
-                                <th>Investasi Non-Kapital</th>
-                                <th>Biaya Operasional</th>
-                                <th>Depresiasi</th>
-                                <th>Pendapatan Bersih</th>
-                                <th>Pajak</th>
-                                <th>Pendapatan Kena Pajak</th>
-                                <th>Arus Kas Bersih</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Tahun</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Produksi</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Pendapatan</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Investasi Kapital</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Investasi Non-Kapital</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Biaya Operasional</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Depresiasi</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Pendapatan Bersih</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Pajak</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Pendapatan Kena Pajak</th>
+                                <th class="border dark:border-gray-100 border-gray-900 p-2">Arus Kas Bersih</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $project->invest_capital }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $project->invest_noncapital }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{( $project->invest_capital+$project->invest_noncapital)*-1 }}</td>
+                            </tr>
                             @foreach ($project->cashflows as $cashflow)
                                 <tr>
-                                    <td>{{ $cashflow->year }}</td>
-                                    <td>{{ $cashflow->production }}</td>
-                                    <td>{{ $cashflow->income }}</td>
-                                    <td>{{ $cashflow->invest_capital }}</td>
-                                    <td>{{ $cashflow->invest_noncapital }}</td>
-                                    <td>{{ $cashflow->opex }}</td>
-                                    <td>{{ $cashflow->depreciation }}</td>
-                                    <td>{{ $cashflow->net_income }}</td>
-                                    <td>{{ $cashflow->tax }}</td>
-                                    <td>{{ $cashflow->taxable_income }}</td>
-                                    <td>{{ $cashflow->net_cashflow }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->year }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->production }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->income }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->opex }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->depreciation }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->net_income }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->tax }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->taxable_income }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->net_cashflow }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
