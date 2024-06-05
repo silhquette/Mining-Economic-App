@@ -23,14 +23,14 @@
                                 :value="old('site_manager')" />
                             <x-input-error :messages="$errors->get('site_manager')" class="mt-2" />
                         </div>
-                        <div class="mb-4 flex gap-4">
-                            <div>
+                        <div class="mb-8 flex gap-4">
+                            <div class="basis-1/2">
                                 <x-input-label for="invest_capital" :value="__('Invest Capital')"/>
                                 <x-text-input id="invest_capital" class="block mt-1 w-full" type="number" name="invest_capital"
                                     :value="old('invest_capital')" min=1 />
                                 <x-input-error :messages="$errors->get('invest_capital')" class="mt-2" />
                             </div>
-                            <div>
+                            <div class="basis-1/2">
                                 <x-input-label for="invest_noncapital" :value="__('Invest Non Capital')"/>
                                 <x-text-input id="invest_noncapital" class="block mt-1 w-full" type="number" name="invest_noncapital"
                                     :value="old('invest_noncapital')" min=1 />
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <x-primary-button class="">
+                        <x-primary-button>
                             {{ __('Submit') }}
                         </x-primary-button>
                     </form>

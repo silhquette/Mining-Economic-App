@@ -46,7 +46,7 @@
                             </tr>
                             @foreach ($project->cashflows as $cashflow)
                                 <tr>
-                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->year }}</td>
+                                    <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $loop->iteration }}</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->production }}</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->income }}</td>
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">0</td>
@@ -59,6 +59,11 @@
                                     <td class="border dark:border-gray-100 border-gray-900 p-2">{{ $cashflow->net_cashflow }}</td>
                                 </tr>
                             @endforeach
+                            <tr>
+                                <td colspan="11" class="text-center">
+                                    <a class="inline-block bg-gray-500 w-full p-2 mt-4 rounded-lg" href="{{ route('cashflow.create', $project->id) }}">Tambah Cashflow</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
