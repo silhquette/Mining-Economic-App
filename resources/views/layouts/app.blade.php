@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 
         {{-- Icon --}}
         <script src="https://kit.fontawesome.com/4ffd0bca40.js" crossorigin="anonymous"></script>
@@ -35,5 +36,7 @@
                 {{ $slot }}
             </main>
         </div>
+        
+        @stack('scripts')
     </body>
 </html>

@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Cashflow extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'year',
+        'production',
+        'income',
+        'opex',
+        'depreciation',
+        'net_income',
+        'tax',
+        'taxable_income',
+        'net_cashflow',
+        'project_id'
+    ];
 }

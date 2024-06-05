@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Cashflow;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreCashflowRequest;
 use App\Http\Requests\UpdateCashflowRequest;
-use App\Models\Project;
 
 class CashflowController extends Controller
 {
@@ -14,7 +15,7 @@ class CashflowController extends Controller
      */
     public function create(Project $project)
     {
-        return view('cashflow.edit', [
+        return view('cashflow.create', [
             'project' => $project
         ]);
     }
@@ -24,7 +25,13 @@ class CashflowController extends Controller
      */
     public function store(StoreCashflowRequest $request, Project $project)
     {
-        //
+        try {
+            Cashflow::create($request->all());
+            return redirect()->route('project.show', $project->id)->with(['success' => 'Cashflow berhasil ditambahkan']);
+        } catch (\Illuminate\Database\QueryException $e) {
+            Log::error($e->getMessage());
+            return redirect()->back()->withInput()->withErrors(['error' => 'Gagal menambahkan cashflow. Silakan coba lagi.']);
+        }
     }
 
     /**
@@ -42,11 +49,9 @@ class CashflowController extends Controller
      */
     public function update(UpdateCashflowRequest $request, Cashflow $cashflow, Project $project)
     {
-        $validated = $request->validate();
+        $cashflow->update($request->all());
 
-        $cashflow->update($validated);
-
-        return redirect()->route('project.show', $project->id)->with(['success' => 'Project berhasil ditambahkan']);
+        return redirect()->route('project.show', $project->id)->with(['success' => 'Cashflow berhasil diubah']);
     }
 
     /**
