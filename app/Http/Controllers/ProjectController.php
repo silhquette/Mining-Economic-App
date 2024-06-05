@@ -73,7 +73,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('project.edit', [
+            'project' => $project
+        ]);
     }
 
     /**
@@ -81,7 +83,11 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $validated = $request->validate();
+
+        $project->update($validated);
+
+        return redirect()->route('project.index')->with(['success' => 'Project berhasil ditambahkan']);
     }
 
     /**
@@ -89,6 +95,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('project.index')->with(['success' => 'Project berhasil dihapus']);
     }
 }
