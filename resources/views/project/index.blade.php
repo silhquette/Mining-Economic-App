@@ -15,7 +15,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             @foreach ($projects as $project)
                 <div
-                    class="group/project flex flex-col justify-between bg-white text-gray-900 dark:text-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 relative hover:bg-transparent hover:outline hover:outline-1 hover:outline-gray-800 dark:hover:outline-gray-200">
+                    class="group/project flex flex-col justify-between bg-white text-gray-900 dark:text-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 relative hover:bg-transparent hover:outline hover:outline-1 hover:outline-gray-800 dark:hover:outline-gray-200 transition ease-in-out duration-150">
                     <div class="font-semibold text-3xl mb-2 w-5/6">{{ $project->name }}</div>
                     <div>
                         <div>{{ $project->site_manager }}</div>

@@ -102,13 +102,12 @@
                                 <td class="whitespace-nowrap font-semibold p-4">${{ number_format(($project->invest_capital  +$project->invest_noncapital) * -1 + $project->cashflows->sum('net_cashflow'), 2, ".", "") }}</td>
                                 <td class="whitespace-nowrap font-semibold p-4"></td>
                             </tr>
-                            <tr>
-                                <td colspan="12" class="text-center">
-                                    <a class="inline-block bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 w-full py-2 mt-8 uppercase font-semibold text-xs rounded-lg hover:bg-gray-700 dark:hover:bg-white" href="{{ route('cashflow.create', $project->id) }}">Add Cashflow</a>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
+                    <div class="text-center">
+                        <a class="inline-block bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 w-full py-2 uppercase font-semibold text-xs rounded-lg hover:bg-gray-700 dark:hover:bg-white" href="{{ route('cashflow.create', $project->id) }}">Add Cashflow</a>
+                        <a class="inline-block bg-transparent dark:text-white text-gray-800 w-full py-2 mt-4 uppercase font-semibold text-xs rounded-lg hover:border-gray-800 hover:border dark:hover:border-white  transition ease-in-out duration-150" href="{{ route('project.index') }}">Back to Project</a>
+                    </div>
                 </div>
             </div>
         </div>

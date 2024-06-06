@@ -40,7 +40,8 @@ class CashflowController extends Controller
     public function edit(Project $project, Cashflow $cashflow)
     {
         return view('cashflow.edit', [
-            'cashflow' => $cashflow
+            'cashflow' => $cashflow,
+            'project' => $project
         ]);
     }
 
