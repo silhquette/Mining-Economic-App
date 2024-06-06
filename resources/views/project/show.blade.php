@@ -75,7 +75,7 @@
                             </tr>
                             @foreach ($project->cashflows as $cashflow)
                                 <tr>
-                                    <td class="whitespace-nowrap p-4">{{ $loop->iteration }}</td>
+                                    <td class="whitespace-nowrap p-4">{{ $cashflow->year }}</td>
                                     <td class="whitespace-nowrap p-4">{{ $cashflow->production }}</td>
                                     <td class="whitespace-nowrap p-4">${{ number_format($cashflow->income, 2, ".", "") }}</td>
                                     <td class="whitespace-nowrap text-gray-500 dark:text-gray-400 p-4">0</td>

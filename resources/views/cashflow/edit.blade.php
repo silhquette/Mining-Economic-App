@@ -58,7 +58,7 @@
 
                             <div class="flex-1 mb-4">
                                 <x-input-label for="depreciation" :value="__('Depreciation')" />
-                                <x-text-input min=0 max=100 id="depreciation" class="block mt-1 w-full" type="number" :value="old('depreciation', {{-- error di sini --}})" readonly/>
+                                <x-text-input min=0 max=100 id="depreciation" class="block mt-1 w-full" type="number" :value="old('depreciation', ($cashflow->income - $cashflow->opex) * $project->depreciation/100    )" readonly/>
                                 <x-input-error :messages="$errors->get('depreciation')" class="mt-2" />
                             </div>
 

@@ -23,6 +23,6 @@ class Project extends Model
 
     public function cashflows() : HasMany
     {
-        return $this->hasMany(Cashflow::class);
+        return $this->hasMany(Cashflow::class)->orderBy('year');
     }
 }
